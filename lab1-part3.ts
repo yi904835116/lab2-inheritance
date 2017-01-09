@@ -25,8 +25,17 @@ class CheckingsAccount extends Account {
 }
 
 class SavingsAccount extends Account {
+    private withdrawals: number = 0;
     constructor(initialBalance: number, owner: string) {
         super(initialBalance, owner);
+    }
+    withdraw(amount: number) {
+        this.withdrawals = this.withdrawals + 1;
+        if (this.withdrawals <= 3) {
+            this.balance = this.balance - amount;
+        } else {
+            console.log("Sorry, you've exceed 3 withdrawals already!");
+        }
     }
 }
 
@@ -44,4 +53,8 @@ savingsAccount.checkBalance();
 savingsAccount.deposit(10);
 savingsAccount.checkBalance();
 savingsAccount.withdraw(15);
+savingsAccount.withdraw(15);
+savingsAccount.withdraw(15);
+savingsAccount.withdraw(15);
+
 savingsAccount.checkBalance();

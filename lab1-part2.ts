@@ -1,49 +1,35 @@
-class CheckingsAccount {
-    balance: number;
-
-    constructor(initialBalance: number) {
-        this.balance = initialBalance;
-    }
-
-    deposit(amount: number) {
-        this.balance = this.balance + amount;
-    }
-    withdraw(amount: number) {
-        this.balance = this.balance - amount;
-    }
-    checkBalance() {
-        console.log(`Checkings account balance: $${this.balance}`);
-    }
-}
-
 class SavingsAccount {
-    balance: number;
+    private balance: number;
+    private owner: string;
+    private withdrawals: number = 0;
 
-    constructor(initialBalance: number) {
+    constructor(initialBalance: number, owner: string) {
         this.balance = initialBalance;
+        this.owner = owner;
     }
 
     deposit(amount: number) {
         this.balance = this.balance + amount;
     }
     withdraw(amount: number) {
-        this.balance = this.balance - amount;
+        this.withdrawals = this.withdrawals + 1;
+        if (this.withdrawals <= 3) {
+            this.balance = this.balance - amount;
+        } else {
+            console.log("Sorry, you've exceed 3 withdrawals already!");
+        }
     }
     checkBalance() {
-        console.log(`Savings account balance: $${this.balance}`);
-    }
+        console.log(`${this.owner} account balance: $${this.balance}`);
+    }   
 }
 
-let checkingsAccount = new CheckingsAccount(20);
-checkingsAccount.checkBalance();
-checkingsAccount.deposit(40);
-checkingsAccount.checkBalance();
-checkingsAccount.withdraw(30);
-checkingsAccount.checkBalance();
-
-let savingsAccount = new SavingsAccount(20);
+let savingsAccount = new SavingsAccount(20, "Luis");
 savingsAccount.checkBalance();
-savingsAccount.deposit(10);
+savingsAccount.deposit(40);
 savingsAccount.checkBalance();
-savingsAccount.withdraw(15);
+savingsAccount.withdraw(30);
+savingsAccount.withdraw(30);
+savingsAccount.withdraw(30);
+savingsAccount.withdraw(30);
 savingsAccount.checkBalance();
