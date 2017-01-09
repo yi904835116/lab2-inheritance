@@ -60,4 +60,4 @@ Make sure you push your commits to Github. Submit a link to your Github repo in 
 
 ## Prototypical inheritance
 
-In the last 20 minutes of lab, we will be covering prototypical inheritance.
+In the last 20 minutes of lab, we will be covering prototypical inheritance. If we run out of time, please read [this short MDN article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) on inheritance and the prototypal chain.
