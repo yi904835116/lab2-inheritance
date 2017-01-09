@@ -58,6 +58,17 @@ When you are done with this step, commit your changes to git for this file
 Make sure you push your commits to Github. Submit a link to your Github repo in Canvas for grading. The Canvas submission will close an hour after lab, so please submit it now before you forget. If you are not done, don't worry about it. We are grading based on participation. This is more for your learning than for your grade.
 
 
-## Prototypical inheritance
+## Prototypal inheritance
 
-In the last 20 minutes of lab, we will be covering prototypical inheritance. If we run out of time, please read [this short MDN article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) on inheritance and the prototypal chain.
+In the last 20 minutes of lab, we will be covering prototypical inheritance.
+
+### ES6 Classes
+Classes in Javascript aren’t the same as in Java! The class syntax is just “sugar” that was introduced with ES6/ES2015. Behind the scenes, javascript is using what’s called prototypal inheritance. 
+
+But first let’s understand what’s going on in Java. Like shown in the last example, Java uses class inheritance: A class is like a blueprint—a description of the object to be created. Classes inherit from classes, and create subclass relationships. Class inheritance in Javascript (and Typescript) is implemented on top of prototypal inheritance, but that does not mean that it does the same thing.
+
+### Prototypal Inheritance
+When it comes to inheritance, JavaScript only has one construct: objects. Functions, and objects literals are both objects, and objects inherit from objects, which is a key distinction from class inheritance. 
+
+### Prototype Chain
+When an object is created in Javascript, it has an internal link to another object called its prototype. This prototype has a prototype of it’s own, and so on until an object is reached with null as it’s prototype. Null doesn’t have a prototype, and is the end of this chain of prototypes.
