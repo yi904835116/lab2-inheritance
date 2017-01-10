@@ -60,10 +60,10 @@ Make sure you push your commits to Github. Submit a link to your Github repo in 
 
 ## Prototypal inheritance
 
-In the last 20 minutes of lab, we will be covering prototypical inheritance.
+In the last 20 minutes of lab, we will be covering prototypal inheritance.
 
 ### ES6 Classes
-Classes in Javascript aren’t the same as in Java! The class syntax is just “sugar” that was introduced with ES6/ES2015. Behind the scenes, javascript is using what’s called prototypal inheritance. 
+Classes don't actually exist. 😱 The class syntax is just “sugar” that was introduced with ES6/ES2015. Behind the scenes, javascript is using what’s called prototypal inheritance.
 
 But first let’s understand what’s going on in Java. Like shown in the last example, Java uses class inheritance: A class is like a blueprint—a description of the object to be created. Classes inherit from classes, and create subclass relationships. Class inheritance in Javascript (and Typescript) is implemented on top of prototypal inheritance, but that does not mean that it does the same thing.
 
