@@ -124,4 +124,4 @@ Re-implement part 4 of the bank accounts example from before, but using the Obje
 
 ## Take home
 
-If you are still confused about prototypical inheritance and/or we ran out of time for lab, read [this short article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) about Prototypical Inheritance.
+If you are still confused about prototypical inheritance and/or we ran out of time for lab, read [this short article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) about Prototypical Inheritance. Ask questions!
