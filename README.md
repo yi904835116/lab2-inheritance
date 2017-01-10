@@ -117,4 +117,7 @@ c.baz = function(){
 ```
 
 ## Excercise
-Implement the bank accounts example from before, but using the Object.create() syntax.
+
+Open up **lab2-proto.js**.
+
+Re-implement part 4 of the bank accounts example from before, but using the Object.create() syntax to inherit from a base class instead of using the new class+extends syntax. This will help you get a better understanding of how the new class+extends syntax is working behind the scenes with prototypal inheritance.
