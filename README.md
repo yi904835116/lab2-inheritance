@@ -1,4 +1,4 @@
-# lab2-inheritance
+# Inheritance in JavaScript
 
 In today's lab we will spend 30 minutes practicing writing ES6 style classes (the "new syntax") with TypeScript by writing code for bank accounts. Then we will spend the last 20 minutes learning about prototypical inheritance (an important javascript concept which will not be covered in lecture) and practicing it.
 
@@ -58,6 +58,63 @@ When you are done with this step, commit your changes to git for this file
 Make sure you push your commits to Github. Submit a link to your Github repo in Canvas for grading. The Canvas submission will close an hour after lab, so please submit it now before you forget. If you are not done, don't worry about it. We are grading based on participation. This is more for your learning than for your grade.
 
 
-## Prototypical inheritance
+## Prototypal inheritance
 
-In the last 20 minutes of lab, we will be covering prototypical inheritance. If we run out of time, please read [this short MDN article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) on inheritance and the prototypal chain.
+In the last 20 minutes of lab, we will be covering prototypal inheritance.
+
+### ES6 Classes
+In JavaScript classes don't actually exist. 😱 The new (ES6) class syntax is just syntactical “sugar”, but behind the scenes javascript is using what’s called prototypal inheritance.
+
+But first let’s review what inheritance looks like in Java. Java uses class inheritance: A class is like a blueprint—a description of the object to be created. In Java, classes inherit from classes, which create subclass relationships. Instances of classes are created with constructors by using the 'new' keyword.
+
+Even though javascript has the 'class' keyword, behind the scenes it is still just a function.
+```
+class Foo {}
+typeof Foo // 'function'
+```
+
+### Prototypes
+When it comes to inheritance, JavaScript only has one construct: objects. Functions, and objects literals are both objects, and unlike with classes, javascript objects are instantiated upon declaration.
+
+When an object is created in Javascript, it has an internal link to another object called its **prototype**. This prototype is a ***working object instance.*** Objects inherit directly from other objects, so each prototype has a prototype of it’s own, and so on until an object is reached with null as it’s prototype. Null doesn’t have a prototype, and is the end of this chain of prototypes.
+
+
+### Inheritance And The Prototype Chain
+Javascript objects are like bags of properties, and also have a link to a prototype object. When trying to access a property of an object, JavaScript will first look in that object, then the prototype of the object, the prototype of the prototype, and so on until a property is fount or the end of the chain is reached.
+
+### Cloning an Existing Object
+Javascript gives us a handy method for creating new objects with a specified prototype: `Object.create()` This can be used to clone an existing object, by passing it as a parameter to the method as follows:
+
+Note that creating a object literal like: `var foo = {}` is a succint way of creating a clone of Object.prototype and extending it with new properties.
+
+```
+var a = {a: 1}; 
+// a ---> Object.prototype ---> null
+
+var b = Object.create(a);
+// b ---> a ---> Object.prototype ---> null
+console.log(b.a); // 1 (inherited)
+
+var c = Object.create(b);
+// c ---> b ---> a ---> Object.prototype ---> null
+
+var d = Object.create(null);
+// d ---> null
+console.log(d.hasOwnProperty); 
+// undefined, because d doesn't inherit from Object.prototype
+```
+
+### Extending an Object
+In the above example we cloned objects in order to create a prototype chain of inheritence, but what if we want to extend the functionality of our cloned objects?
+
+Easy. Remember that objects are just dynamic bags of properties, so you can just add functionality as you go!
+
+For example if you wanted to add a method called baz to the object 'c', just do:
+```
+c.baz = function(){
+	console.log('prints baz!');
+}
+```
+
+## Excercise
+Implement the bank accounts example from before, but using the Object.create() syntax.
