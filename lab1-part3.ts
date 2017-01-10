@@ -30,8 +30,8 @@ class SavingsAccount extends Account {
         super(initialBalance, owner);
     }
     withdraw(amount: number) {
-        this.withdrawals = this.withdrawals + 1;
         if (this.withdrawals <= 3) {
+            this.withdrawals = this.withdrawals + 1;
             this.balance = this.balance - amount;
         } else {
             console.log("Sorry, you've exceed 3 withdrawals already!");
