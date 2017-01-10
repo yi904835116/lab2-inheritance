@@ -80,7 +80,7 @@ When an object is created in Javascript, it has an internal link to another obje
 
 
 ### Inheritance And The Prototype Chain
-Javascript objects are like bags of properties, and also have a link to a prototype object. When trying to access a property of an object, JavaScript will first look in that object, then the prototype of the object, the prototype of the prototype, and so on until a property is fount or the end of the chain is reached.
+Javascript objects are like bags of properties, and also have a link to a prototype object. When trying to access a property of an object, JavaScript will first look in that object, then the prototype of the object, the prototype of the prototype, and so on until a property is found or the end of the chain is reached.
 
 ### Cloning an Existing Object
 Javascript gives us a handy method for creating new objects with a specified prototype: `Object.create()` This can be used to clone an existing object, by passing it as a parameter to the method as follows:
